@@ -3,11 +3,14 @@ package com.example.a1jengm22.poi_assignment;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -65,11 +68,38 @@ public class MainActivity extends Activity
 
             return true;
         }
+
+        if (item.getItemId() == R.id.preferences)
+        {
+            // react to the menu item being selected...
+            // System.exit(0); this code closes the app
+
+            Intent intent = new Intent(this, Preferences.class);
+            startActivityForResult(intent, 1);
+
+            return true;
+        }
        return false;
 
     }
 
-    protected void onActivityResult(int requestCode,int resultCode,Intent intent)
+    public void onStart()
+    {
+        super.onStart();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean autoupload = prefs.getBoolean("autoupload", true);
+        //String pizzaCode = prefs.getString("pizza", "NONE");
+
+        if (autoupload == true)
+        {
+            //upload after doing task 6 and 7
+        }
+
+
+        // do something with the preference data...
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
 
         if(resultCode == RESULT_OK)
@@ -114,16 +144,17 @@ public class MainActivity extends Activity
                 }
 
             }
-            else if (requestCode == 1)
+
+            if(requestCode==1)
             {
 
-                Bundle extras=intent.getExtras();
-                double longitude  = extras.getDouble("com.example.longitude");
-                double latitude= extras.getDouble("com.example.latitude");
-                extras.getDouble("com.example.longitude");
-                mv.getController().setCenter(new GeoPoint(latitude,longitude));
-            }
+                if (resultCode==RESULT_OK)
+                {
+                    Bundle extras=intent.getExtras();
+                    boolean preferences = extras.getBoolean("com.example.a1jengm22.preferences");
 
+                }
+            }
 
         }
 

@@ -22,6 +22,7 @@ public class NewPoi extends Activity implements View.OnClickListener
         add.setOnClickListener(this);
     }
 
+    @Override
     public void onClick(View v)
     {
         EditText poiName = (EditText)findViewById(R.id.poiName);
