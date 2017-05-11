@@ -8,19 +8,19 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="text"
         android:id="@+id/poiName"
         android:hint="POI Name" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="text"
         android:id="@+id/poiType"
         android:hint="POI Type" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="text"
         android:id="@+id/poiDesc"
         android:hint="Description"
         android:layout_weight="0.39" />

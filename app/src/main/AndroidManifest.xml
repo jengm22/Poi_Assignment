@@ -25,4 +25,5 @@
         <activity android:name=".NewPoi"></activity>
     </application>
 
+
 </manifest>
