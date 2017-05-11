@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
